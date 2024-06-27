@@ -31,6 +31,10 @@
             "dest": "/static/logo512.png"
         },
         {
+            "src": "/logo512.png",
+            "dest": "/static/logo512.png"
+        },
+        {
             "src": "/manifest.json",
             "dest": "/manifest.json"
         },
