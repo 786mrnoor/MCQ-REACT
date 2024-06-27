@@ -1,0 +1,341 @@
+.Home {
+    main.table-main {
+        margin: 20px;
+        background-color: white;
+        padding: 20px;
+        border: 1px solid var(--border-color);
+
+        header {
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+
+            button {
+                white-space: nowrap;
+                margin-right: auto;
+                border-radius: 5px;
+                padding: 10px 20px;
+                border: 1px solid var(--border-color);
+                outline: none;
+                cursor: pointer;
+                font-size: 14px;
+                color: var(--primary);
+                background-color: white;
+                transition: 0.2s all ease-in;
+                background-color: var(--primary);
+                color: white;
+
+                &:focus {
+                    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+                }
+            }
+
+            .inputField {
+                position: relative;
+
+                input {
+                    padding: 10px;
+                    font-size: 14px;
+                    color: var(--primary);
+                    background-color: white;
+                    outline: 1px solid var(--border-color);
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: 0.2s all ease-in;
+
+                    &~span {
+                        position: absolute;
+                        top: 0;
+                        left: 10px;
+                        padding: 10px;
+                        font-size: 14px;
+                        color: var(--primary);
+                        transition: 0.3s all ease-in;
+                        pointer-events: none;
+                        user-select: none;
+                    }
+
+                    &:focus,
+                    &:valid {
+                        outline: 2px solid var(--primary);
+
+                        &~span,
+                        &~span {
+                            padding: 2px 6px;
+                            top: -12px;
+                            font-size: 12px;
+                            background-color: var(--primary);
+                            color: white;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .tableContainer {
+            overflow: auto;
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 30px;
+
+                td,
+                th {
+                    text-align: left;
+                    padding: 6px;
+                    border: 1px solid var(--border-color);
+                }
+
+                thead {
+                    background-color: #bee5ec;
+
+                    th {
+                        color: #0c314e;
+                        font-size: 14px;
+                        font-weight: normal;
+                        white-space: nowrap;
+
+                        &.sortButton {
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        &:nth-child(even) {
+                            background-color: #f0f0f0;
+                        }
+
+                        td:nth-child(2) a {
+                            color: var(--primary);
+                        }
+
+                        td:nth-child(6),
+                        td:nth-child(7) {
+                            font-size: 12px;
+                            white-space: nowrap;
+                        }
+
+                        td:last-child {
+                            padding: 3px 6px;
+                            white-space: nowrap;
+
+                            button {
+                                padding: 4px 6px;
+                                font-size: 12px;
+                                background-color: var(--primary);
+                                border: none;
+                                border-radius: 5px;
+                                outline: none;
+                                color: white;
+                                cursor: pointer;
+                                margin-left: 6px;
+
+                                a{
+                                    color: white;
+                                    text-decoration: none;
+                                }
+
+                                &:focus-visible {
+                                    box-shadow: 0 0 0 3px rgba(13, 110, 253, .25);
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+
+    #popUp {
+        position: fixed;
+        z-index: 1;
+        inset: 0;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, .4);
+
+        .addBox {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            border-radius: 20px;
+            box-shadow: 0 0 7px #000;
+            background-color: #fff;
+            -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+            animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+
+            header {
+                align-items: center;
+                border-radius: 20px 20px 0 0;
+                box-shadow: 0 0 6px #000;
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+
+                button {
+                    background-color: var(--primary);
+                    border: none;
+                    border-radius: 10px;
+                    color: white;
+                    cursor: pointer;
+                    font-size: 18px;
+                    outline: none;
+                    padding: 10px 15px;
+                    transition: all .3s;
+
+                    &:hover {
+                        box-shadow: 2px 2px 5px black;
+                    }
+
+                    &:focus-visible {
+                        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+                    }
+                }
+            }
+
+            main {
+                padding: 20px;
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 8px;
+                        margin-bottom: 15px;
+                        border: 1px solid #84c5fe;
+                        border-radius: 5px;
+                        white-space: nowrap;
+                        column-gap: 10px;
+                        -webkit-column-gap: 10px;
+                        background-color: #f0f8ff;
+
+                        input {
+                            border: 1px solid #84c5fe;
+                            font-size: 17px;
+                            outline: none;
+                            padding: 4px;
+                            resize: none;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            footer {
+                align-items: center;
+                border-top: 1px solid gray;
+                -webkit-column-gap: 10px;
+                column-gap: 10px;
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+
+                button {
+                    background-color: var(--primary);
+                    border: none;
+                    border-radius: 10px;
+                    color: white;
+                    cursor: pointer;
+                    font-size: 18px;
+                    outline: none;
+                    padding: 10px 15px;
+                    transition: all .3s;
+
+                    &:hover {
+                        box-shadow: 2px 2px 5px black;
+                    }
+
+                    &:focus-visible {
+                        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
+                    }
+                }
+            }
+        }
+    }
+
+    .scrollbar {
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 50px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: var(--primary);
+        }
+    }
+}
+
+@-webkit-keyframes slide-in-blurred-bottom {
+    0% {
+        -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+        transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+        -webkit-filter: blur(40px);
+        filter: blur(40px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+        transform: translateY(0) scaleY(1) scaleX(1);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-blurred-bottom {
+    0% {
+        -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+        transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+        -webkit-filter: blur(40px);
+        filter: blur(40px);
+        opacity: 0;
+    }
+
+    100% {
+        -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+        transform: translateY(0) scaleY(1) scaleX(1);
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+@media (width < 400px) {
+    main.table-main {
+        margin: 10px;
+        padding: 10px;
+    }
+}

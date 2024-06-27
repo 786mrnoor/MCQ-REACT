@@ -1,0 +1,187 @@
+.test-page #filterForm {
+    width: 95%;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(173, 171, 171);
+    background-color: white;
+
+    header {
+        padding: 25px;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0px 0px 10px gray;
+    }
+
+    main {
+        padding: 25px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+
+        .inputField {
+            font-size: 16px;
+
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            input,
+            select {
+                padding: 6px 10px;
+                font-size: 16px;
+                width: 100%;
+                outline: none;
+                border: 1px solid rgb(178, 178, 178);
+            }
+        }
+
+    }
+
+    footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 25px;
+
+        button {
+            color: white;
+            padding: 10px 20px;
+            font-size: 17px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background-color: var(--primary);
+            cursor: pointer;
+            transition: all .3s;
+            
+            &:hover:not(:disabled) {
+                box-shadow: 2px 2px 5px black;
+            }
+
+            &:focus-visible:not(:disabled) {
+                box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary);
+            }
+
+            &:disabled {
+                background-color: gray;
+                cursor: auto;
+                pointer-events: none;
+            }
+
+            &:active:not(:disabled) {
+                box-shadow: inset 2px 2px 5px black;
+            }
+
+        }
+
+        /* button {
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+                box-shadow: 0px 0px 10px gray;
+            }
+
+            &:active {
+                box-shadow: 0px 0px 10px gray;
+                background-color: white;
+                color: var(--bgcolor);
+                transform: scale(0.96);
+            }
+
+            &:disabled {
+                box-shadow: 0px 0px 10px gray;
+                background-color: white;
+                color: var(--bgcolor);
+                transform: scale(0.96);
+            }
+        } */
+
+    }
+}
+
+.test-page .tableContainer {
+    width: 95%;
+    margin: 0px auto 20px auto;
+    overflow: auto;
+    background-color: white;
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+
+        td,
+        th {
+            text-align: left;
+            padding: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        thead {
+            background-color: #bee5ec;
+
+            th {
+                color: #0c314e;
+                font-size: 14px;
+                font-weight: normal;
+                white-space: nowrap;
+            }
+        }
+
+        tbody {
+            tr {
+
+                td:nth-child(2) {
+                    min-width: 150px;
+                }
+
+                td:nth-child(6),
+                td:nth-child(7) {
+                    font-size: 12px;
+                    white-space: nowrap;
+                }
+            }
+
+            tr:nth-child(even) {
+                background-color: #f0f0f0;
+            }
+        }
+
+
+    }
+}
+
+.test-page .scrollbar {
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        border: 1px solid var(--border-color);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: var(--primary);
+    }
+}
