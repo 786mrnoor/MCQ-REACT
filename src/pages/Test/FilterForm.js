@@ -1,9 +1,11 @@
 import { useState } from "react"
-import { useSetFilter, useStartQuiz } from "../../ContextProvider/QuizContextProvider";
+import { useQuizFunctions, useSetFilter } from "../../ContextProvider/QuizContextProvider";
+import { useQuestions } from "../../ContextProvider/QuestionContextProvider";
 
 export default function FilterForm() {
+    const questions = useQuestions();
     const [filter, setFilter] = useState({ created: '', attend: '', correct: '', questions: '' });
-    const startTest = useStartQuiz();
+    const startTest = useQuizFunctions();
 
     const filterQuiz = useSetFilter();
     function handleChange(e) {
@@ -69,7 +71,7 @@ export default function FilterForm() {
             </main>
             <hr />
             <footer>
-                <button type="button" onClick={startTest}>Start Quiz</button>
+                <button type="button" onClick={() => startTest.start(questions, filter)}>Start Quiz</button>
                 <button type="button" onClick={() => filterQuiz(filter)}>Apply Filter</button>
             </footer>
         </div>

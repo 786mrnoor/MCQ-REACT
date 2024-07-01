@@ -136,6 +136,10 @@
                 font-size: 14px;
                 font-weight: normal;
                 white-space: nowrap;
+                &.sortButton {
+                        user-select: none;
+                        cursor: pointer;
+                    }
             }
         }
 

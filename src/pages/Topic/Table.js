@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useQuestions, useQuestionModel } from "../../ContextProvider/QuestionContextProvider";
 import { NavLink } from "react-router-dom";
 import { useTopic } from "../../ContextProvider/TopicContextProvider";
+import timeAgo from "../../helpers/timeAgo";
 
 export default function Table({ tableAction }) {
     const topic = useTopic();
@@ -65,7 +66,7 @@ export default function Table({ tableAction }) {
                 <p>QUESTIONS: <span>{topic?.questions}</span> </p>
                 <p>ATT: <span>{topic?.attend}</span></p>
                 <p>CRT: <span>{topic?.correct}</span></p>
-                <p>MODIFIED: <span>{topic?.modified ? new Date(topic?.modified).toLocaleString() : ''}</span></p>
+                <p>MODIFIED: <span>{topic?.modified ? timeAgo(topic?.modified) + ' ago' : ''}</span></p>
             </div>
             <header>
                 <button><NavLink to={`/test/${topic?.id}`}>Start Test</NavLink></button>
@@ -97,8 +98,8 @@ export default function Table({ tableAction }) {
                                 <td>{question.options[question.answer]}</td>
                                 <td>{question.attend}</td>
                                 <td>{question.correct}</td>
-                                <td>{new Date(question.created).toLocaleString()}</td>
-                                <td>{new Date(question.modified).toLocaleString()}</td>
+                                <td>{timeAgo(question.created)} ago</td>
+                                <td>{timeAgo(question.modified)} ago</td>
                                 <td>
                                     <button type="button" onClick={() => tableAction('EDIT', question)}>Edit</button>
                                     <button type="button" onClick={() => handleDelete(question)}>Delete</button>

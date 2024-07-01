@@ -1,7 +1,7 @@
-import { useResetQuiz } from "../../ContextProvider/QuizContextProvider";
+import { useQuizFunctions, useResetQuiz } from "../../ContextProvider/QuizContextProvider";
 
 export default function Result({ result, resultBoxAction }) {
-    const resetQuiz = useResetQuiz();
+    const resetQuiz = useQuizFunctions();
     let score = 0;
     let list = result.map((question, i) => {
         score += question.correct ? 1 : 0;
@@ -19,7 +19,7 @@ export default function Result({ result, resultBoxAction }) {
                 </ul>
             </main>
             <footer>
-                <button onClick={resetQuiz}>Play Again</button>
+                <button onClick={resetQuiz.reset}>Play Again</button>
             </footer>
         </div>
     )

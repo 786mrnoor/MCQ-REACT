@@ -31,7 +31,7 @@ export default function Profile({onCloseProfile}) {
         <div onClick={(e) => e.stopPropagation()} className="profile">
             <p>{user?.email}</p>
             <div className="imgContainer">
-                <img onError={(e)=>console.log(e.target)} src={user?.photoURL || logo} alt="Profile Pic" className="btn" />
+                <img src={user?.photoURL || logo} alt="Profile Pic" className="btn" />
                 <input type="file" id="profileInput" accept="image/*" onChange={handleChangePic} style={{ display: 'none' }} />
                 <label htmlFor="profileInput">edit</label>
                 <h2>Hi, {user?.displayName}!</h2>

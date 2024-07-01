@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useTopics, useTopicsModal, useSortTopics } from "../../ContextProvider/TopicsContextProvider"
+import timeAgo from "../../helpers/timeAgo";
 
 export default function Table({ tableAction }) {
     let topics = useTopics();
@@ -13,7 +14,7 @@ export default function Table({ tableAction }) {
             return true;
         }
         return false;
-    })
+    });
 
     async function handleDelete(topicId) {
         if (window.confirm('Are You Sure You Want To Delete This Topic!')) {
@@ -57,8 +58,8 @@ export default function Table({ tableAction }) {
                                 <td>{topic.questions}</td>
                                 <td>{topic.attend}</td>
                                 <td>{topic.correct}</td>
-                                <td>{new Date(topic.created).toLocaleString()}</td>
-                                <td>{new Date(topic.modified).toLocaleString()}</td>
+                                <td>{timeAgo(topic.created)} ago</td>
+                                <td>{timeAgo(topic.modified)} ago</td>
                                 <td>
                                     <button type="button" onClick={() => tableAction('EDIT', topic)}>Edit</button>
                                     <button type="button" onClick={() => handleDelete(topic.id)}>Delete</button>

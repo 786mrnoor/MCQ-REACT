@@ -112,9 +112,13 @@
                             background-color: #f0f0f0;
                         }
 
-                        td:nth-child(2) a {
-                            color: var(--primary);
-                        }
+                                                td:nth-child(2) {
+                                                    min-width: 100px;
+                        
+                                                    a {
+                                                        color: var(--primary);
+                                                    }
+                                                }
 
                         td:nth-child(6),
                         td:nth-child(7) {
