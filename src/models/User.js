@@ -34,8 +34,11 @@ class User {
         return new Promise(async (resolve, reject) => {
             if (obj?.photoURL) {
                 try {
+                    const newMetadata = {
+                        cacheControl: 'public,max-age=31536000'
+                    };                      
                     let reducedFileURL = await reduceImage(obj.photoURL);
-                    await Storage.post(`usersPic/${obj.uid}`, reducedFileURL, 'data_url');
+                    await Storage.post(`usersPic/${obj.uid}`, reducedFileURL, 'data_url', newMetadata);
                     let url = await Storage.getURL(`usersPic/${obj.uid}`);
                     await Auth.update({ photoURL: url });
                     resolve(url);

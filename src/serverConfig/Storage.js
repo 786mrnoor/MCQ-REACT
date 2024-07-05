@@ -3,8 +3,8 @@ import { getStorage, ref, uploadString, getDownloadURL } from "https://www.gstat
 const storage = getStorage();
 
 class Storage {
-    static post(path, image, option){
-        return uploadString(ref(storage, path), image, option);
+    static post(path, image, option, metaData) {
+        return uploadString(ref(storage, path), image, option, metaData);
     }
 
     static getURL(path){
