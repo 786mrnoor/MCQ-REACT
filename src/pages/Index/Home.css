@@ -1,6 +1,7 @@
 .Home {
     main.table-main {
-        margin: 20px;
+        margin: auto;
+            width: 95%;
         background-color: white;
         padding: 20px;
         border: 1px solid var(--border-color);
@@ -141,7 +142,7 @@
                                 cursor: pointer;
                                 margin-left: 6px;
 
-                                a{
+                                a {
                                     color: white;
                                     text-decoration: none;
                                 }
