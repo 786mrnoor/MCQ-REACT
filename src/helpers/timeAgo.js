@@ -12,7 +12,7 @@ export default function timeAgo(time) {
     }
 
     const hours = Math.round(minutes / 60);
-    if (hours < 12) {
+    if (hours < 24) {
         return hours + (hours === 1 ? 'hour' : 'hours');
     }
 
