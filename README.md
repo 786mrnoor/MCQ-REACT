@@ -1,3 +1,1 @@
-links: 
-https://mcq-rose.vercel.app/login
-https://mcq-noor-mohammads-projects.vercel.app/login
+# [Preview](https://786mrnoor-mcq.vercel.app/)
